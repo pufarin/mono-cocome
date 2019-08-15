@@ -1,9 +1,12 @@
 package net.gabrielkovacs.coco.inventory;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -29,4 +32,11 @@ public class ChangePriceController {
         return stockItemResponse; 
     }
 
+    @PutMapping("stockitem/store/{storeId}/{stockItemId}")
+    void updatePrice(@RequestBody StockItem newStockItem, @PathVariable Long storeId, @PathVariable Long stockItemId){
+        Optional<StockItem> queryResult = stockItemRepository.findById(stockItemId);
+        queryResult.ifPresent(stockItem ->{stockItem.setSalePrice(newStockItem.getSalePrice());
+                                           stockItemRepository.save(stockItem);
+                                        });
+    } 
 }
