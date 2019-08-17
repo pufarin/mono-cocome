@@ -5,24 +5,20 @@ import java.util.Collection;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import net.gabrielkovacs.coco.inventory.uc3.ProductSuplier;
+
 @Entity
 @Table(name="product")
-class Product {
+public class Product {
 
     @Id
     @Column(name="id")
     private long id;
-
-    public Collection<StockItem> getStockItem() {
-        return this.stockItem;
-    }
-
-    public void setStockItem(Collection<StockItem> stockItem) {
-        this.stockItem = stockItem;
-    }
 
     @Column(name="barcode")
     private int barcode;
@@ -43,7 +39,9 @@ class Product {
     @OneToMany(mappedBy = "product")
     private Collection<StockItem> stockItem;
 
-
+    @ManyToOne
+    @JoinColumn(name = "productsuplierid")
+    private ProductSuplier productSuplier;
 
     public long getId() {
         return this.id;
@@ -75,6 +73,14 @@ class Product {
 
     public void setPurchasePrice(double purchasePrice) {
         this.purchasePrice = purchasePrice;
+    }
+
+    public long getProductSuplierId(){
+        return productSuplier.getId();
+    }
+
+    public void setProductSuplierId(long id){
+        productSuplier.setId(id);
     }
 
 }

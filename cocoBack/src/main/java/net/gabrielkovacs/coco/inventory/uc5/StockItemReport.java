@@ -1,8 +1,8 @@
-package net.gabrielkovacs.coco.inventory;
+package net.gabrielkovacs.coco.inventory.uc5;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-interface StockItemReport {
+public interface StockItemReport {
 
     long getID();
     @JsonProperty("productName")

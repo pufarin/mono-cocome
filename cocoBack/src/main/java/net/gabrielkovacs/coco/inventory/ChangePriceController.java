@@ -32,10 +32,6 @@ public class ChangePriceController {
         return stockItemResponse; 
     }
 
-    @GetMapping("stockitemreport/{storeId}")
-    public List<StockItemReport> getStoreItemReport(@PathVariable long storeId){
-        return stockItemRepository.getReportDataForStore(storeId); 
-    }
 
     @PutMapping("stockitem/store/{storeId}/{stockItemId}")
     void updatePrice(@RequestBody StockItem newStockItem, @PathVariable Long storeId, @PathVariable Long stockItemId){
