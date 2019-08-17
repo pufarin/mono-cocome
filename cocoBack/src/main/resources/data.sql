@@ -7,7 +7,7 @@ insert into product (id, barcode, name, purchaseprice, productsuplierid) values 
 insert into product (id, barcode, name, purchaseprice, productsuplierid) values (103, 12348, 'cabage', 17, 802);
 insert into store (id, location, name) values (200, 'viena1', 'store1');
 insert into store (id, location, name) values (201, 'viena2', 'store2');
-insert into stockitem (id, amount, minstock, maxstock, saleprice, productid, storeid) values (300,10,5,25,35,100,200);
+insert into stockitem (id, amount, minstock, maxstock, saleprice, productid, storeid) values (300,4,5,25,35,100,200);
 insert into stockitem (id, amount, minstock, maxstock, saleprice, productid, storeid) values (301,30,5,25,20,101,200);
 insert into stockitem (id, amount, minstock, maxstock, saleprice, productid, storeid) values (302,60,10,35,21,102,200);
 insert into stockitem (id, amount, minstock, maxstock, saleprice, productid, storeid) values (303,15,10,35,18,103,200);

@@ -3,6 +3,7 @@ package net.gabrielkovacs.coco.inventory.uc3;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -22,4 +23,8 @@ class ProductSuplierController {
         return productRepository.findAll();
     }
 
+    @GetMapping("stockitems/store/{storeId}/lowstock")
+    public List<LowStockProduct> getAllProductsWithLowStock(@PathVariable long storeId){
+        return productRepository.getProductsUnderMinStock(storeId);
+    }
 }
