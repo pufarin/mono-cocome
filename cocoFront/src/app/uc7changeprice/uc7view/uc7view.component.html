@@ -1,2 +1,11 @@
 <p>uc7view works!</p>
 <p>the test is: {{text}}</p>
+
+<button class="btn btn-danger" (click)="setStockItem()"> Get StockItem</button>
+
+<p>Stock Items: </p>
+<ul>
+    <li *ngFor="let si of stockItem">
+      {{ si.id }}
+    </li>
+  </ul>
