@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Uc7serviceService } from '../service/uc7service.service';
 
 @Component({
   selector: 'app-uc7view',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./uc7view.component.css']
 })
 export class Uc7viewComponent implements OnInit {
+  
+  text : String;
 
-  constructor() { }
+  constructor(uc7service: Uc7serviceService) {
+    this.text = uc7service.getMessage();
+   }
 
   ngOnInit() {
   }
+  
 
 }
