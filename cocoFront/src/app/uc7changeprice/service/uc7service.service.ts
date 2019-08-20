@@ -21,12 +21,10 @@ export class Uc7serviceService {
     return "ana are multe mere";
   }
   
-  private getAllStockItemsPerStore(storeId : number){
+  getAllStockItemsPerStore(storeId : number){
     return this.http.get<IStockItem[]>(`http://localhost:8080/stockitem/store/${storeId}`);
   }
 
-  getAllStockItems(){
-    return this.getAllStockItemsPerStore(200);
-  }
+
 
 }

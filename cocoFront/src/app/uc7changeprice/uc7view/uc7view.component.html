@@ -1,8 +1,7 @@
 
-<button type="button" class="btn btn-primary btn-sm " (click)="setStockItem()"> Get StockItem</button>
 
 <div class="container">
-  <form [formGroup]="storeIdForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="storeIdForm" (ngSubmit)="getStockItems()">
     <div class="form-group">
       <label for="store-id"> StoreID </label>
       <input
@@ -16,8 +15,9 @@
 </div>
 
 
-<div class="container-fluid">
-  <table class="table" *ngIf="stockItem">
+<div class="container-fluid mt-5" *ngIf="stockItem">
+  <h2 class="text-center">All the stock items for the store with the ID: {{storeId}} </h2>
+  <table class="table" >
     <thead>
       <tr>
         <th>id</th>

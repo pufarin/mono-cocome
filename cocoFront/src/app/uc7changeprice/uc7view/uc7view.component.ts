@@ -25,13 +25,11 @@ export class Uc7viewComponent implements OnInit {
     });
   }
   
-  setStockItem(){
-    this.uc7service.getAllStockItems().subscribe(result => this.stockItem = result);
-  }
+  
 
-  onSubmit(){
-    this.storeId=this.storeIdForm.value.storeId;
-    console.log(this.storeId);
+  getStockItems(){
+    this.storeId = this.storeIdForm.value.storeId
+    this.uc7service.getAllStockItemsPerStore(this.storeId).subscribe(result => this.stockItem = result);
   }
 
 }
