@@ -1,35 +1,45 @@
-<p>uc7view works!</p>
-<p>the test is: {{text}}</p>
 
 <button type="button" class="btn btn-primary btn-sm " (click)="setStockItem()"> Get StockItem</button>
 
-<table class="table" *ngIf="stockItem">
-  <thead>
-    <tr>
-      <th>id</th>
-      <th>amount</th>
-      <th>min-stock</th>
-      <th>max-stock</th>
-      <th>sale-price</th>
-      <th>product-id</th>
-      <th>store-id</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let si of stockItem">
-      <td>{{si.id}}</td>
-      <td>{{si.amount}}</td>
-      <td>{{si.minStock}}</td>
-      <td>{{si.maxStock}}</td>
-      <td>{{si.salePrice}}</td>
-      <td>{{si.productId}}</td>
-      <td>{{si.storeId}}</td>
-    </tr>
-  </tbody>
+<div class="container">
+  <form [formGroup]="storeIdForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="store-id"> StoreID </label>
+      <input
+        type="number"
+        id="store-id"
+        formControlName="storeId"
+        class="form-control">
+    </div>
+    <button class="btn btn-primary" type="submit">Submit</button>
+  </form>
+</div>
 
 
-
-
-</table>
-
+<div class="container-fluid">
+  <table class="table" *ngIf="stockItem">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>amount</th>
+        <th>min-stock</th>
+        <th>max-stock</th>
+        <th>sale-price</th>
+        <th>product-id</th>
+        <th>store-id</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let si of stockItem">
+        <td>{{si.id}}</td>
+        <td>{{si.amount}}</td>
+        <td>{{si.minStock}}</td>
+        <td>{{si.maxStock}}</td>
+        <td>{{si.salePrice}}</td>
+        <td>{{si.productId}}</td>
+        <td>{{si.storeId}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
