@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { Uc7changepriceModule } from './uc7changeprice/uc7changeprice.module';
 
@@ -13,7 +14,8 @@ import { Uc7changepriceModule } from './uc7changeprice/uc7changeprice.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    Uc7changepriceModule 
+    Uc7changepriceModule,
+    NgbModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

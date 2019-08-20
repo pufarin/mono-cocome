@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { Uc7viewComponent } from './uc7view/uc7view.component';
 import { Uc7serviceService } from './service/uc7service.service';
@@ -9,7 +10,8 @@ import { Uc7serviceService } from './service/uc7service.service';
   declarations: [Uc7viewComponent],
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   exports: [
     Uc7viewComponent
