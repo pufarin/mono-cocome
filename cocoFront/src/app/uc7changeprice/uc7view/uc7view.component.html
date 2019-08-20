@@ -1,11 +1,35 @@
 <p>uc7view works!</p>
 <p>the test is: {{text}}</p>
 
-<button type="button" class="btn btn-primary btn-sm" (click)="setStockItem()"> Get StockItem</button>
+<button type="button" class="btn btn-primary btn-sm " (click)="setStockItem()"> Get StockItem</button>
 
-<p>Stock Items: </p>
-<ul>
-    <li *ngFor="let si of stockItem">
-      {{ si.id }}
-    </li>
-  </ul>
+<table class="table" *ngIf="stockItem">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>amount</th>
+      <th>min-stock</th>
+      <th>max-stock</th>
+      <th>sale-price</th>
+      <th>product-id</th>
+      <th>store-id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let si of stockItem">
+      <td>{{si.id}}</td>
+      <td>{{si.amount}}</td>
+      <td>{{si.minStock}}</td>
+      <td>{{si.maxStock}}</td>
+      <td>{{si.salePrice}}</td>
+      <td>{{si.productId}}</td>
+      <td>{{si.storeId}}</td>
+    </tr>
+  </tbody>
+
+
+
+
+</table>
+
+
