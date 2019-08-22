@@ -39,9 +39,79 @@
         <td>{{si.salePrice}}</td>
         <td>{{si.productId}}</td>
         <td>{{si.storeId}}</td>
-        <button type="button" (click)="onChangePrice(si)" class="fas fa-edit mt-3 "></button>
+        <button type="button"  (click)="onChangePrice(si)"  class="fas fa-edit mt-3 "></button>
       </tr>
     </tbody>
   </table>
 </div>
 
+<div class="container">
+  <form [formGroup]="changePriceForm" (ngSubmit)="setStockItemPrice()">
+    <div class="form-row">  
+      <div class="form-group col-md-1">
+        <label for="stockIdemId"> id </label>
+        <input
+          type="number"
+          id="stockIdemId"
+          readonly
+          formControlName="stockItemId"
+          class="form-control">
+      </div>
+      <div class="form-group col-md-1">  
+        <label for="stockIdemAmount"> amount </label>
+        <input
+          type="number"
+          id="stockIdemAmount"
+          readonly
+          formControlName="stockItemAmount"
+          class="form-control">
+      </div>
+      <div class="form-group col-md-2">  
+        <label for="stockIdMinStock"> min-stock  </label>
+        <input
+          type="number"
+          id="stockIdMinStock"
+          readonly
+          formControlName="stockIdMinStock"
+          class="form-control">
+      </div>
+      <div class="form-group col-md-2">  
+        <label for="stockIdMaxStock"> max-stock  </label>
+        <input
+          type="number"
+          id="stockIdMaxStock"
+          readonly
+          formControlName="stockIdMaxStock"
+          class="form-control">
+      </div>
+      <div class="form-group col-md-2">  
+        <label for="stockIdSalePrice"> sale-price  </label>
+        <input
+          type="number"
+          id="stockIdSalePrice"
+          formControlName="stockIdSalePrice"
+          class="form-control">
+      </div>
+      <div class="form-group col-md-2">  
+        <label for="stockIdProductId"> product-id  </label>
+        <input
+          type="number"
+          id="stockIdProductId"
+          readonly
+          formControlName="stockIdProductId"
+          class="form-control">
+      </div>
+      <div class="form-group col-md-2">  
+        <label for="stockIdStoreId"> store-id  </label>
+        <input
+          type="number"
+          id="stockIdStoreId"
+          readonly
+          formControlName="stockIdStoreId"
+          class="form-control">
+      </div>
+    </div>  
+    <button class="btn btn-secondary" type="cancel">Cancel</button>
+    <button class="btn btn-primary" type="submit">Save</button>
+  </form>
+</div>  
