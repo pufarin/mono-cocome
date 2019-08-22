@@ -10,7 +10,6 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class Uc7viewComponent implements OnInit {
   
-  cifra : number;
   text : String;
   stockItem : IStockItem[];
   storeIdForm : FormGroup;
@@ -20,7 +19,7 @@ export class Uc7viewComponent implements OnInit {
 
   constructor(private uc7service: Uc7serviceService) {
     this.text = uc7service.getMessage();
-    this.cifra = 665;
+    
   }
 
   ngOnInit() {
