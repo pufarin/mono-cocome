@@ -32,4 +32,8 @@ export class Uc7viewComponent implements OnInit {
     this.uc7service.getAllStockItemsPerStore(this.storeId).subscribe(result => this.stockItem = result);
   }
 
+  onChangePrice(si:IStockItem){
+    console.log("Selected stock item id: ", si.id );
+  }
+
 }
