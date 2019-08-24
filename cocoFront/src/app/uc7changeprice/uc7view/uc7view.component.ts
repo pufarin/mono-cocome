@@ -74,7 +74,7 @@ export class Uc7viewComponent implements OnInit {
     
     this.uc7service.updateStockItemPrice(storeId, stockItemId, si).subscribe
     (
-      data => {console.log("Successful price update: ", data)}, 
+      data => {console.log("Successful price update: ", data); this.getStockItems(); }, 
       error => {console.log("Failed to update", error)}
 
     );
