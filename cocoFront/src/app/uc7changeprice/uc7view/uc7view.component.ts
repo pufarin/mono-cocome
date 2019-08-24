@@ -11,17 +11,13 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class Uc7viewComponent implements OnInit {
   
-  text : String;
+
   stockItem : IStockItem[];
-  stockItemToBeUpdated : IStockItem;
   storeIdForm : FormGroup;
   changePriceForm : FormGroup;
-  storeId : number;
-  
 
   constructor(private uc7service: Uc7serviceService) {
-    this.text = uc7service.getMessage();
-    
+       
   }
 
   ngOnInit() {
@@ -50,24 +46,9 @@ export class Uc7viewComponent implements OnInit {
     this.changePriceForm.get("storeid").setValue(si.storeId);
   }
 
-  setStockItemToBeUpdated(){
-    /*
-    this.stockItemToBeUpdated.id = this.changePriceForm.value.stockItemId;
-    this.stockItemToBeUpdated.amount = this.changePriceForm.value.stockItemAmount;
-    this.stockItemToBeUpdated.minStock = this.changePriceForm.value.stockIdMinStock;
-    this.stockItemToBeUpdated.maxStock = this.changePriceForm.value.stockIdMaxStock;
-    this.stockItemToBeUpdated.salePrice = this.changePriceForm.value.stockIdSalePrice;
-    this.stockItemToBeUpdated.productId = this.changePriceForm.value.stockIdProductId;
-    this.stockItemToBeUpdated.storeId = this.changePriceForm.value.stockIdStoreId;
-    */
-    return this.stockItemToBeUpdated = this.changePriceForm.value;
-
-  }  
-
 
   getStockItems(){
-    this.storeId = this.storeIdForm.value.storeId
-    this.uc7service.getAllStockItemsPerStore(this.storeId).subscribe(result => this.stockItem = result);
+    this.uc7service.getAllStockItemsPerStore(this.storeIdForm.value.storeId).subscribe(result => this.stockItem = result);
   }
 
   changeStockItemPrice(storeId: number, stockItemId: number, si: JSON){
@@ -82,13 +63,7 @@ export class Uc7viewComponent implements OnInit {
 
   onChangePrice(si:IStockItem){
     this.setChangePriceStockItemObject(si);
-    console.log("Selected stock item id: ", si.id );
-  }
-
-  setStockItemPrice(){
-    console.log("Stock Item ID: ", JSON.stringify(this.changePriceForm.value));
-    console.log("StockItemID: ", this.changePriceForm.value.id);
-    
+    //console.log("Selected stock item id: ", si.id );
   }
 
   formObjectToJson(fo:FormGroup){
