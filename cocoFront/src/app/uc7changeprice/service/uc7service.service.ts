@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class Uc7serviceService {
 
+  readonly options = {headers: {'Content-Type': 'application/json'}};
   readonly apiUrl : string = 'http://localhost:8080/';
   private stockItem = [];
 
@@ -22,9 +23,13 @@ export class Uc7serviceService {
   }
   
   getAllStockItemsPerStore(storeId : number){
-    return this.http.get<IStockItem[]>(`http://localhost:8080/stockitem/store/${storeId}`);
+   //return this.http.get<IStockItem[]>(`http://localhost:8080/stockitem/store/${storeId}`);
+    return this.http.get<IStockItem[]>(`${this.apiUrl}stockitem/store/${storeId}`);
   }
 
-
+  updateStockItemPrice(storeId: number, stockItemId : number, si:JSON){
+     return this.http.put<IStockItem>(`${this.apiUrl}stockitem/store/${storeId}/${stockItemId}`,si,this.options); 
+  }
+  
 
 }

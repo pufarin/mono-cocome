@@ -4,6 +4,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+
 import { Uc7viewComponent } from './uc7view/uc7view.component';
 import { Uc7serviceService } from './service/uc7service.service';
 
@@ -15,7 +16,7 @@ import { Uc7serviceService } from './service/uc7service.service';
     HttpClientModule,
     NgbModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   exports: [
     Uc7viewComponent

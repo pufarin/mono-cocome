@@ -68,12 +68,12 @@
               <form [formGroup]="changePriceForm" (ngSubmit)="setStockItemPrice()">
                 <div class="form-row">  
                   <div class="form-group col-md-1">
-                    <label for="stockIdemId"> id </label>
+                    <label for="stockItemId"> id </label>
                     <input
                       type="number"
-                      id="stockIdemId"
+                      id="stockItemId"
                       readonly
-                      formControlName="stockItemId"
+                      formControlName="id"
                       class="form-control">
                   </div>
                   <div class="form-group col-md-1">  
@@ -82,7 +82,7 @@
                       type="number"
                       id="stockIdemAmount"
                       readonly
-                      formControlName="stockItemAmount"
+                      formControlName="amount"
                       class="form-control">
                   </div>
                   <div class="form-group col-md-2">  
@@ -91,7 +91,7 @@
                       type="number"
                       id="stockIdMinStock"
                       readonly
-                      formControlName="stockIdMinStock"
+                      formControlName="minStock"
                       class="form-control">
                   </div>
                   <div class="form-group col-md-2">  
@@ -100,7 +100,7 @@
                       type="number"
                       id="stockIdMaxStock"
                       readonly
-                      formControlName="stockIdMaxStock"
+                      formControlName="maxStock"
                       class="form-control">
                   </div>
                   <div class="form-group col-md-2">  
@@ -108,7 +108,7 @@
                     <input
                       type="number"
                       id="stockIdSalePrice"
-                      formControlName="stockIdSalePrice"
+                      formControlName="salePrice"
                       class="form-control">
                   </div>
                   <div class="form-group col-md-2">  
@@ -117,7 +117,7 @@
                       type="number"
                       id="stockIdProductId"
                       readonly
-                      formControlName="stockIdProductId"
+                      formControlName="productid"
                       class="form-control">
                   </div>
                   <div class="form-group col-md-2">  
@@ -126,13 +126,13 @@
                       type="number"
                       id="stockIdStoreId"
                       readonly
-                      formControlName="stockIdStoreId"
+                      formControlName="storeid"
                       class="form-control">
                   </div>
                 </div>
                 <div align="right">  
                   <button class="btn btn-secondary" type="cancel" (click)="showModal=false" >Cancel</button>
-                  <button class="btn btn-primary" type="submit" (click)="showModal=false" (click)="setStockItemPrice()" >Save</button>
+                  <button class="btn btn-primary" type="submit" (click)="showModal=false" (click)="setStockItemPrice()" (click)="changeStockItemPrice(changePriceForm.value.storeid, changePriceForm.value.id,formObjectToJson(changePriceForm))" >Save</button>
                 </div>
               </form>
             </div>  
