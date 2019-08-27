@@ -1,6 +1,6 @@
 <div class="container mt-md-5">
     <div class="row h-100 justify-content-center align-items-center">
-        <form class="form-inline" [formGroup]="storeIdForm" (ngSubmit)="getStockReports()">
+        <form class="form-inline" [formGroup]="storeIdForm" (ngSubmit)="createReports(storeIdForm.value.storeId)">
         <div class="form-group" >
             <label for="store-id" class="mr-md-2"> StoreID </label>
             <input
@@ -14,3 +14,28 @@
         </form>
     </div>
 </div>
+
+
+<div class="container-fluid mt-5" *ngIf="stockItemReport">
+        <h2 class="text-center">The stock item report for the store with the ID: {{storeIdForm.value.storeId}} </h2>
+        <table class="table" >
+          <thead>
+            <tr>
+              <th>id</th>
+              <th>min-stock</th>
+              <th>amount</th>
+              <th>max-stock</th>
+              <th>product-name</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let sir of stockItemReport ">
+              <td>{{sir.id}}</td>
+              <td>{{sir.minStock}}</td>
+              <td>{{sir.amount}}</td>
+              <td>{{sir.maxStock}}</td>
+              <td>{{sir.productName}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
