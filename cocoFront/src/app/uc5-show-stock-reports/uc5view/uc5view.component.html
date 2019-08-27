@@ -1,0 +1,16 @@
+<div class="container mt-md-5">
+    <div class="row h-100 justify-content-center align-items-center">
+        <form class="form-inline" [formGroup]="storeIdForm" (ngSubmit)="getStockReports()">
+        <div class="form-group" >
+            <label for="store-id" class="mr-md-2"> StoreID </label>
+            <input
+            type="number"
+            id="store-id"
+            formControlName="storeId"
+            class="form-control mr-md-2">
+            
+            </div>
+            <button class="btn btn-primary" type="submit">Create Report</button>
+        </form>
+    </div>
+</div>

@@ -8,6 +8,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { Uc7changepriceModule } from './uc7changeprice/uc7changeprice.module';
 import { HeaderComponent } from './header/header.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { Uc5ShowStockReportsModule } from './uc5-show-stock-reports/uc5-show-stock-reports.module';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { HomepageComponent } from './homepage/homepage.component';
     BrowserModule,
     AppRoutingModule,
     Uc7changepriceModule,
+    Uc5ShowStockReportsModule,
     NgbModule 
   ],
   providers: [],
