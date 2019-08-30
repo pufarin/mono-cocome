@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
+
+import { Uc3Service } from '../service/uc3.service';
+import { IProduct } from '../data/product';
 
 @Component({
   selector: 'app-uc3view',
@@ -7,9 +11,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Uc3viewComponent implements OnInit {
 
-  constructor() { }
+  storeIdForm : FormGroup;
+  allProducts: IProduct[];
+
+  constructor( private uc3service : Uc3Service) {
+    this.storeIdForm = new FormGroup({
+      'storeId' : new FormControl(null)
+    });
+  }
 
   ngOnInit() {
+  }
+
+  getAllProducts(){
+      this.uc3service.getAllProducts().subscribe(result=> this.allProducts = result);
+  }
+
+  getInventoryOverview(storeId:number){
+    this.getAllProducts();
   }
 
 }

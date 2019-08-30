@@ -1,1 +1,50 @@
-<p>uc3view works!</p>
+<div class="container mt-md-5">
+    <div class="row h-100 justify-content-center align-items-center">
+        <form class="form-inline" [formGroup]="storeIdForm" (ngSubmit)="getInventoryOverview(storeIdForm.value.storeId)">
+        <div class="form-group" >
+            <label for="store-id" class="mr-md-2"> StoreID </label>
+            <input
+            type="number"
+            id="store-id"
+            formControlName="storeId"
+            class="form-control mr-md-2">
+            
+            </div>
+            <button class="btn btn-primary" type="submit">Create Report</button>
+        </form>
+    </div>
+</div>
+
+<div class="split left">
+    <div class="centered">
+      <h3>These are all available products</h3>
+      <div  *ngIf="allProducts" >
+        
+        <table class="table table-sm" >
+          <thead>
+            <tr class="d-flex">
+              <th class="col-2">id</th>
+              <th class="col-2">name</th>
+              <th class="col-2">purchase-price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let p of allProducts "  class="d-flex">
+              <td class="col-2">{{p.id}}</td>
+              <td class="col-2">{{p.name}}</td>
+              <td class="col-2">{{p.purchasePrice}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+    </div>
+</div>
+  
+  <div class="split right">
+    <div class="centered">
+      
+      <h3>The are all stock items which are running low </h3>
+      
+    </div>
+  </div>
