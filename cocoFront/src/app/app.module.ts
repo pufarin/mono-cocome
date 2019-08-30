@@ -9,6 +9,7 @@ import { Uc7changepriceModule } from './uc7changeprice/uc7changeprice.module';
 import { HeaderComponent } from './header/header.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { Uc5ShowStockReportsModule } from './uc5-show-stock-reports/uc5-show-stock-reports.module';
+import { Uc3OrderProductsModule } from './uc3-order-products/uc3-order-products.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { Uc5ShowStockReportsModule } from './uc5-show-stock-reports/uc5-show-sto
     AppRoutingModule,
     Uc7changepriceModule,
     Uc5ShowStockReportsModule,
+    Uc3OrderProductsModule,
     NgbModule 
   ],
   providers: [],
