@@ -9,6 +9,7 @@ public interface LowStockProduct {
     String getName();
     int getAmount();
     int getMinStock();
+    int getMaxStock();
     
 
 }

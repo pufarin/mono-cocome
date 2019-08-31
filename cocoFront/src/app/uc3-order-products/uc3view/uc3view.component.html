@@ -45,6 +45,30 @@
     <div class="centered">
       
       <h3>The are all stock items which are running low </h3>
+
+      <div  *ngIf="allLowStockProducts" >
+        
+        <table class="table table-sm" >
+          <thead>
+            <tr class="d-flex">
+              <th class="col-2">name</th>
+              <th class="col-2">min-stock</th>
+              <th class="col-2">amount</th>
+              <th class="col-2">max-stock</th>
+              <th class="col-2">store-id</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let p of allLowStockProducts "  class="d-flex">
+              <td class="col-2">{{p.productName}}</td>
+              <td class="col-2">{{p.minStock}}</td>
+              <td class="col-2">{{p.amount}}</td>
+              <td class="col-2">{{p.maxStock}}</td>
+              <td class="col-2">{{p.storeId}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
       
     </div>
   </div>

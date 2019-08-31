@@ -12,6 +12,6 @@ interface ProductRepository extends JpaRepository<Product, Long>{
     Product getProductById(long id);
     List<Product> findAll();
 
-    @Query(value = "select s.storeid, p.name, s.amount, s.minstock from stockitem s, product p where s.amount < s.minstock and p.id = s.productid and s.storeid=?1", nativeQuery = true)
+    @Query(value = "select s.storeid, p.name, s.amount, s.minstock, s.maxstock from stockitem s, product p where s.amount < s.minstock and p.id = s.productid and s.storeid=?1", nativeQuery = true)
     List<LowStockProduct> getProductsUnderMinStock(long storeId);
 }
