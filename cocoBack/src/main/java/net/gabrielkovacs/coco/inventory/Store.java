@@ -30,6 +30,9 @@ class Store {
 
     @OneToMany(mappedBy = "store")
     private Collection<StockItem> stockItem;
+    
+    @OneToMany(mappedBy = "store")
+    private Collection<ProductOrder> productOrder;
 
     public long getId() {
         return this.id;

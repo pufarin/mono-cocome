@@ -43,6 +43,9 @@ public class Product {
     @JoinColumn(name = "productsuplierid")
     private ProductSuplier productSuplier;
 
+    @OneToMany(mappedBy = "product")
+    private Collection<OrderEntry> orderEntry;
+
     public long getId() {
         return this.id;
     }
