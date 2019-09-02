@@ -1,6 +1,6 @@
 ## This project is an attempt to implement the The Common Component Modeling Example ([CoCoMe](https://www.cocome.org/downloads/documentation/cocome.pdf)) as a monolith
 
-----
+
 
 ## Progress
 
