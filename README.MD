@@ -12,3 +12,14 @@
  - **UC6** Show Delivery Reports :TBD
  - **UC7** Change Price : DONE
  - **UC8** ProductExchange : TBD
+
+## Starting the project
+
+1. To start **angular**:
+- cd cocoFront
+- ng serve
+
+2. To start **spring boot**
+- cd cocoBack
+- mvn spring-boot:run 
+
