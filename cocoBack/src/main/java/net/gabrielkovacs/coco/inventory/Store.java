@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="store")
-class Store {
+public class Store {
 
     @Id
     @Column(name="id")
@@ -22,6 +22,10 @@ class Store {
     private String location;
 
     protected Store(){}
+
+    public Store(long id){
+        this.id = id;
+    }
 
     public Store (String name, String location){
         this.name = name;

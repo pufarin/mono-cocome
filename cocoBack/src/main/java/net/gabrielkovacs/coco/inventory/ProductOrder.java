@@ -5,10 +5,13 @@ import java.util.Collection;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -17,12 +20,14 @@ public class ProductOrder{
 
     @Id
     @Column(name="id")
+    @SequenceGenerator(name = "mySeqGen", sequenceName = "mySeq", initialValue = 5, allocationSize = 100)
+    @GeneratedValue(generator = "mySeqGen")
     private long id;
     
     private Date deliveryDate;
     private Date orderingDate;
 
-    protected ProductOrder(){}
+    public ProductOrder(){}
 
 
     public ProductOrder(long id, Date deliveryDate, Date orderingDate) {
@@ -33,8 +38,8 @@ public class ProductOrder{
 
 
 
-    @ManyToOne
-    @JoinColumn(name = "storeid")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "storeid", referencedColumnName = "id")
     private Store store;
 
     @OneToMany(mappedBy = "productOrder")
@@ -68,8 +73,8 @@ public class ProductOrder{
         return store.getId();
     }
 
-    public void setStoreId(long id){
-        store.setId(id);
+    public void setStore(Store store){
+        this.store = store;
     }
 
 }
