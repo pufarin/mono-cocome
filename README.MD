@@ -6,7 +6,7 @@
 
  - **UC1** Process Sale : TBD
  - **UC2** Manage Express Checkout : TBD
- - **UC3** Order Products : WIP
+ - **UC3** Order Products : DONE
  - **UC4** Receive Ordered Products : TBD
  - **UC5** Show Stock Reports : DONE
  - **UC6** Show Delivery Reports :TBD
