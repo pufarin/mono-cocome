@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { IProduct } from '../data/product';
 import { ILowStockProduct } from '../data/low-stock-product';
+import {IOrderEntry} from "../data/order-entry";
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,6 @@ export class Uc3Service {
   }
 
   createProductOrder(storeId: number, order:JSON) {
-    return this.http.post(`${this.apiUrl}store/${storeId}/order`, order, this.options);
+    return this.http.post<IOrderEntry>(`${this.apiUrl}store/${storeId}/order`, order, this.options);
   }
 }
