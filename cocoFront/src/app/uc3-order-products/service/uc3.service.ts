@@ -10,16 +10,21 @@ import { ILowStockProduct } from '../data/low-stock-product';
 export class Uc3Service {
 
   readonly apiUrl : string = 'http://localhost:8080/';
-  
+  readonly options = {headers: {'Content-Type': 'application/json'}};
+
+
 
   constructor(private http : HttpClient) { }
 
   getAllProducts(){
-    return this.http.get<IProduct[]>(`${this.apiUrl}products`); 
+    return this.http.get<IProduct[]>(`${this.apiUrl}products`);
   }
 
   getAllItemsRunningLow(storeId:number){
     return this.http.get<ILowStockProduct []>(`${this.apiUrl}stockitems/store/${storeId}/lowstock`);
   }
 
+  createProductOrder(storeId: number, order:JSON) {
+    return this.http.post(`${this.apiUrl}store/${storeId}/order`, order, this.options);
+  }
 }

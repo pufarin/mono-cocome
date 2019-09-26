@@ -1,3 +1,12 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<div class="container mt-md-5">
+  <div class="row h-100 justify-content-center align-items-center">
+  <ngb-toast *ngIf="showId" header="New order successfully created" [autohide]="true"
+             (hide)="close()" >
+    The created order has the ID: {{createdOrderId}}.
+  </ngb-toast>
+  </div>
+</div>
 <div class="container mt-md-5">
     <div class="row h-100 justify-content-center align-items-center">
         <form class="form-inline" [formGroup]="storeIdForm" (ngSubmit)="getInventoryOverview(storeIdForm.value.storeId)">
@@ -8,7 +17,7 @@
             id="store-id"
             formControlName="storeId"
             class="form-control mr-md-2">
-            
+
             </div>
             <button class="btn btn-primary" type="submit">Create Report</button>
         </form>
@@ -19,7 +28,7 @@
     <div class="centered">
       <h3>These are all available products</h3>
       <div  *ngIf="allProducts" >
-        
+
         <table class="table table-sm" >
           <thead>
             <tr class="d-flex">
@@ -33,21 +42,22 @@
               <td class="col-2">{{p.id}}</td>
               <td class="col-2">{{p.name}}</td>
               <td class="col-2">{{p.purchasePrice}}</td>
+              <button type="button"   (click)="showModal=true" (click)="setOrderFormObject(p)" class="fas fa-edit mt-3 "></button>
             </tr>
           </tbody>
         </table>
       </div>
-      
+
     </div>
 </div>
-  
+
   <div class="split right">
     <div class="centered">
-      
+
       <h3>The are all stock items which are running low </h3>
 
       <div  *ngIf="allLowStockProducts" >
-        
+
         <table class="table table-sm" >
           <thead>
             <tr class="d-flex">
@@ -69,6 +79,76 @@
           </tbody>
         </table>
       </div>
-      
+
     </div>
   </div>
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog" [ngClass]="{'show':showModal}">
+  <div class="modal-dialog modal-dialog-centered" style="max-width: 85%;">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Order Products</h4>
+        <button type="button" class="close" (click)="showModal=false" data-dismiss="modal">&times;</button>
+
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <form [formGroup]="createOrderForm" (ngSubmit)="setStockItemPrice()">
+            <div class="form-row">
+              <div class="form-group col-md-2">
+                <label for="productId"> id </label>
+                <input
+                  type="number"
+                  id="productId"
+                  readonly
+                  formControlName="id"
+                  class="form-control">
+              </div>
+              <div class="form-group col-md-2">
+                <label for="productName"> name </label>
+                <input
+                  type="text"
+                  id="productName"
+                  readonly
+                  formControlName="name"
+                  class="form-control">
+              </div>
+              <div class="form-group col-md-2">
+                <label for="purchasePrice"> purchase-price  </label>
+                <input
+                  type="number"
+                  id="purchasePrice"
+                  readonly
+                  formControlName="purchasePrice"
+                  class="form-control">
+              </div>
+              <div class="form-group col-md-2">
+                <label for="productAmount"> amount  </label>
+                <input
+                  type="number"
+                  id="productAmount"
+                  formControlName="amount"
+                  class="form-control">
+              </div>
+             </div>
+            <div align="right">
+              <button class="btn btn-secondary" type="cancel" (click)="showModal=false" >Cancel</button>
+              <button class="btn btn-primary" type="submit" (click)="showModal=false" (click)="createOrder(storeIdForm.value.storeId, formObjectToJson(createOrderForm))" >Save</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!--div class="modal-footer">
+        <button type="button" class="btn btn-default" (click)="showModal=false" data-dismiss="modal">Close</button>
+      </div-->
+    </div>
+
+  </div>
+</div>
+
+
+

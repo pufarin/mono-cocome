@@ -40,7 +40,7 @@ class ProductSuplierController {
         return productRepository.getProductsUnderMinStock(storeId);
     }
 
-
+/*
     @PostMapping("store/{storeId}/order")
     void orderProduct(@RequestBody OrderEntry orderEntry, @PathVariable Long storeId){
         ProductOrder productOrder = new ProductOrder(); // is it possible to fix this?
@@ -57,6 +57,24 @@ class ProductSuplierController {
         orderEntryRepository.save(orderEntry);
         
                                       
-    } 
+    }
+*/
+    @PostMapping("store/{storeId}/order")
+    public OrderEntry  orderProduct(@RequestBody OrderEntry orderEntry, @PathVariable Long storeId){
+        ProductOrder productOrder = new ProductOrder(); // is it possible to fix this?
+        Store store = new Store(storeId);
+
+        Date orderDate = new java.sql.Date(System.currentTimeMillis());
+
+
+        productOrder.setOrderingDate(orderDate);
+        productOrder.setStore(store);
+        productOrder =  productOrderRepository.save(productOrder);
+
+        //orderEntry.setId(99999);
+        orderEntry.setProductOrder(productOrder);
+        return orderEntryRepository.save(orderEntry);
+
+    }
 
 }

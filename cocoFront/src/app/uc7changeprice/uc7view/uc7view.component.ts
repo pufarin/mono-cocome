@@ -10,14 +10,14 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./uc7view.component.css']
 })
 export class Uc7viewComponent implements OnInit {
-  
 
-  stockItem : IStockItem[];
+
+  stockItem: IStockItem[];
   storeIdForm : FormGroup;
   changePriceForm : FormGroup;
 
   constructor(private uc7service: Uc7serviceService) {
-       
+
   }
 
   ngOnInit() {
@@ -36,7 +36,7 @@ export class Uc7viewComponent implements OnInit {
 
     });
   }
-  
+
   setChangePriceStockItemObject(si : IStockItem){
     this.changePriceForm.get("id").setValue(si.id);
     this.changePriceForm.get("amount").setValue(si.amount);
@@ -52,10 +52,10 @@ export class Uc7viewComponent implements OnInit {
   }
 
   changeStockItemPrice(storeId: number, stockItemId: number, si: JSON){
-    
+
     this.uc7service.updateStockItemPrice(storeId, stockItemId, si).subscribe
     (
-      data => {console.log("Successful price update: ", data); this.getStockItems(); }, 
+      data => {console.log("Successful price update: ", data); this.getStockItems(); },
       error => {console.log("Failed to update", error)}
 
     );

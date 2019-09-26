@@ -59,14 +59,14 @@
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
-          <h4 class="modal-title">Modal Header</h4>
+          <h4 class="modal-title">Change Price</h4>
         <button type="button" class="close" (click)="showModal=false" data-dismiss="modal">&times;</button>
-        
+
       </div>
       <div class="modal-body">
           <div class="container">
               <form [formGroup]="changePriceForm" (ngSubmit)="setStockItemPrice()">
-                <div class="form-row">  
+                <div class="form-row">
                   <div class="form-group col-md-1">
                     <label for="stockItemId"> id </label>
                     <input
@@ -76,7 +76,7 @@
                       formControlName="id"
                       class="form-control">
                   </div>
-                  <div class="form-group col-md-1">  
+                  <div class="form-group col-md-1">
                     <label for="stockIdemAmount"> amount </label>
                     <input
                       type="number"
@@ -85,7 +85,7 @@
                       formControlName="amount"
                       class="form-control">
                   </div>
-                  <div class="form-group col-md-2">  
+                  <div class="form-group col-md-2">
                     <label for="stockIdMinStock"> min-stock  </label>
                     <input
                       type="number"
@@ -94,7 +94,7 @@
                       formControlName="minStock"
                       class="form-control">
                   </div>
-                  <div class="form-group col-md-2">  
+                  <div class="form-group col-md-2">
                     <label for="stockIdMaxStock"> max-stock  </label>
                     <input
                       type="number"
@@ -103,7 +103,7 @@
                       formControlName="maxStock"
                       class="form-control">
                   </div>
-                  <div class="form-group col-md-2">  
+                  <div class="form-group col-md-2">
                     <label for="stockIdSalePrice"> sale-price  </label>
                     <input
                       type="number"
@@ -111,7 +111,7 @@
                       formControlName="salePrice"
                       class="form-control">
                   </div>
-                  <div class="form-group col-md-2">  
+                  <div class="form-group col-md-2">
                     <label for="stockIdProductId"> product-id  </label>
                     <input
                       type="number"
@@ -120,7 +120,7 @@
                       formControlName="productid"
                       class="form-control">
                   </div>
-                  <div class="form-group col-md-2">  
+                  <div class="form-group col-md-2">
                     <label for="stockIdStoreId"> store-id  </label>
                     <input
                       type="number"
@@ -130,12 +130,12 @@
                       class="form-control">
                   </div>
                 </div>
-                <div align="right">  
+                <div align="right">
                   <button class="btn btn-secondary" type="cancel" (click)="showModal=false" >Cancel</button>
                   <button class="btn btn-primary" type="submit" (click)="showModal=false"  (click)="changeStockItemPrice(changePriceForm.value.storeid, changePriceForm.value.id,formObjectToJson(changePriceForm))" >Save</button>
                 </div>
               </form>
-            </div>  
+            </div>
       </div>
       <!--div class="modal-footer">
         <button type="button" class="btn btn-default" (click)="showModal=false" data-dismiss="modal">Close</button>
