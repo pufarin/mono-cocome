@@ -65,6 +65,10 @@ public class OrderEntry{
         this.product = product;
     }
 
+    public long getProductId() {
+        return product.getId();
+    }
+
     public void setProductOrder(ProductOrder productOrder){
         this.productOrder = productOrder;
     }

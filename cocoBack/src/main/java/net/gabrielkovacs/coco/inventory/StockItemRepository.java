@@ -19,10 +19,7 @@ public interface StockItemRepository extends JpaRepository <StockItem, Long> {
     @Query(value="select si.id, p.name, si.amount, si.minstock, si.maxstock  from stockitem si, product p where si.productid = p.id and si.storeid=?1", nativeQuery = true)
     List<StockItemReport> getReportDataForStore( long storeid);
 
-
-    
+    StockItem getStockItemById(long id);
     List<StockItem> findAll();
-
-    
 
 }

@@ -10,6 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="stockitem")
+public
 class StockItem{
 
     @Id
@@ -98,4 +99,16 @@ class StockItem{
         store.setId(id);
     }
 
+    @Override
+    public String toString() {
+        return "StockItem{" +
+                "id=" + id +
+                ", salePrice=" + salePrice +
+                ", amount=" + amount +
+                ", minStock=" + minStock +
+                ", maxStock=" + maxStock +
+                ", product=" + product +
+                ", store=" + store +
+                '}';
+    }
 }
