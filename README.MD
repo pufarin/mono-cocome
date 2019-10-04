@@ -9,7 +9,7 @@
  - **UC3** Order Products : DONE
  - **UC4** Receive Ordered Products : DONE (no GUI)
  - **UC5** Show Stock Reports : DONE
- - **UC6** Show Delivery Reports :TBD
+ - **UC6** Show Delivery Reports : DONE (no GUI)
  - **UC7** Change Price : DONE
  - **UC8** ProductExchange : TBD
 
