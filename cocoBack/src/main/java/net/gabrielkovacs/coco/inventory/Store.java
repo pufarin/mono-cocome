@@ -1,12 +1,10 @@
 package net.gabrielkovacs.coco.inventory;
 
+import net.gabrielkovacs.coco.inventory.uc6.TradingEnterprise;
+
 import java.util.Collection;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="store")
@@ -38,6 +36,10 @@ public class Store {
     @OneToMany(mappedBy = "store")
     private Collection<ProductOrder> productOrder;
 
+    @ManyToOne
+    @JoinColumn(name = "tradingenterpriseid")
+    private TradingEnterprise  tradingEnterprise;
+
     public long getId() {
         return this.id;
     }
@@ -62,4 +64,7 @@ public class Store {
         this.location = location;
     }
 
+    public Long getTradingEntepriseId() { return this.tradingEnterprise.getId(); }
+
+    public void setTradingEnterpriseId(long id) {this.tradingEnterprise.setId(id); }
 }

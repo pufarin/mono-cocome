@@ -2,13 +2,10 @@ package net.gabrielkovacs.coco.inventory.uc3;
 
 import java.util.Collection;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import net.gabrielkovacs.coco.inventory.Product;
+import net.gabrielkovacs.coco.inventory.uc6.TradingEnterprise;
 
 
 @Entity
@@ -30,6 +27,9 @@ public class ProductSuplier{
 
     @OneToMany(mappedBy = "productSuplier")
     private Collection<Product> product;
+
+    @ManyToMany(mappedBy = "productSupliers")
+    private Collection<TradingEnterprise> tradingEnterprises;
 
 
     public long getId() {
