@@ -20,7 +20,7 @@ public class TradingEnterprise {
     @ManyToMany
     @JoinTable(name = "tradingE_productS",
             joinColumns = @JoinColumn(name = "tradingEnterprise_id"),
-            inverseJoinColumns = @JoinColumn(name = "prodctSupplier_id")
+            inverseJoinColumns = @JoinColumn(name = "productSupplier_id")
     )
     private Collection<ProductSuplier> productSupliers;
 
